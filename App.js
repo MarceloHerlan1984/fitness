@@ -1,10 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import exercises from "./assets/data/exercises";
 
 export default function App() {
+  exercise = exercises[0];
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View style={styles.exerciseContainer}>
+        <Text style={styles.exerciseName}>{exercise.name}</Text>
+        <Text style={{ color: "gray" }}>{exercise.muscle.toUpperCase()}</Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +19,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "gainsboro",
+
+    justifyContent: "center",
+    padding: 10,
+  },
+  exerciseName: {
+    fontSize: 24,
+    fontWeight: "600",
+  },
+  exerciseContainer: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 10,
+    gap: 5,
   },
 });
